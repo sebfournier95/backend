@@ -97,10 +97,10 @@ jobs:
         run: |
           git remote add upstream https://github.com/matchID-project/backend.git || true
           git fetch upstream
-          git fetch origin fork:fork
-          git checkout -B fork origin/fork
+          git fetch origin fork-dev:fork-dev
+          git checkout -B fork-dev origin/fork-dev
           git merge upstream/master --no-edit
-          git push origin fork
+          git push origin fork-dev
 
       - name: Notifier Discord - Succès
         if: success() && (steps.compare.outputs.commit_changed == 'true' || steps.compare.outputs.release_changed == 'true')
